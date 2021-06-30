@@ -1,0 +1,41 @@
+<div style="height: 100vh">
+  <div class="flex-center flex-column">
+    <h1 class="animated fadeIn mb-4">Car inventory (Angular)</h1>
+
+    <form [formGroup]="carForm" (ngSubmit)="onSubmit()" class="text-center border border-light p-5">
+      <h2>Add new Cars</h2>
+      <br />
+      <input type="text" class="form-control mb-4" placeholder="Make" formControlName="make" />
+      <input type="text" class="form-control mb-4" placeholder="Model" formControlName="model" />
+      <input type="text" class="form-control mb-4" placeholder="Colour" formControlName="colour" />
+      <button mdbBtn color="info" block="true" class="my-4" type="submit">Add</button>
+      <button mdbBtn color="default" block="true" class="my-4" type="button" (click)="clear()">Clear</button>
+    </form>
+    <br />
+    <h2>Cars</h2>
+    <div class="p-2">
+      <table mdbTable bordered="true">
+        <thead class="info-color white-text">
+          <tr>
+            <th>Id</th>
+            <th>Make</th>
+            <th>Model</th>
+            <th>Colour</th>
+            <th>Edit Car</th>
+            <th>Remove Car</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let car of cars  | async">
+            <td>{{car.carId}}</td>
+            <td>{{car.make}}</td>
+            <td>{{car.model}}</td>
+            <td>{{car.colour}}</td>
+            <td><button mdbBtn color="success" (click)="openModal(car)">Edit</button></td>
+            <td><button mdbBtn color="danger" (click)="deleteCar(car.carId)">Delete</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

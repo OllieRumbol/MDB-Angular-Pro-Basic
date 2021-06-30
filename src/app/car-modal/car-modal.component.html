@@ -1,0 +1,11 @@
+<div class="modal-header">
+    <h4 class="modal-title w-100" id="myModalLabel">Edit car details</h4>
+  </div>
+  <div class="modal-body">
+    <input type="text" class="form-control mb-4" placeholder="Make" [(ngModel)]="car.make" />
+    <input type="text" class="form-control mb-4" placeholder="Model" [(ngModel)]="car.model" />
+    <input type="text" class="form-control mb-4" placeholder="Colour" [(ngModel)]="car.colour" />
+  </div>
+  <div class="modal-footer">
+    <button type="button" mdbBtn color="primary" class="relative waves-light" (click)="saveModal()" mdbWavesEffect>Save!</button>
+  </div>
